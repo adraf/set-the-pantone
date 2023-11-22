@@ -1,0 +1,12 @@
+.colorCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  .individualCard {
+    margin: 20px;
+  }
+}
+
