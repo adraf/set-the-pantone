@@ -8,7 +8,7 @@ import ColorIndex from './components/ColorIndex.jsx'
 import SingleColor from './components/SingleColor.jsx'
 
 // Loaders
-import { getAllColors, getSingleColor } from './utils/loaders/colors.js'
+import { getAllColors, getSingleColor, getSingleColorScheme } from './utils/loaders/colors.js'
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -27,8 +27,15 @@ const router = createBrowserRouter([
         {
           path: "/color/:colorID",
           element: <SingleColor />,
-          // loader: getSingleColor
-          loader: async ({ params }) => getSingleColor(params.colorID)
+          // ! working
+          // loader: async ({ params }) => getSingleColor(params.colorID)
+          loader: async ({ params }) => {
+            const [singleColor, singleColorScheme] = await Promise.all([
+              getSingleColor(params.colorID),
+              getSingleColorScheme(params.colorID)
+            ])
+            return {singleColor, singleColorScheme}
+          }
         }
       ]
     }
