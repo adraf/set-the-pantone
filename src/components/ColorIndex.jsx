@@ -13,13 +13,13 @@ export default function ColorIndex() {
   const color = useLoaderData()
 
   // state
-  const [ pickerColor, setPickerColor ] = useState('#004CFF')
+  const [ pickerColor, setPickerColor ] = useState('#0504AA')
 
   const noHashColor = pickerColor.split('#')[1]
 
   return (
     <main>
-      <section>
+      <section className="color-picker-section">
         <Form.Label hidden htmlFor="exampleColorInput"></Form.Label>
         <Form.Control
           type="color"
@@ -28,10 +28,10 @@ export default function ColorIndex() {
           title="Choose your color"
           onChange={(e) => setPickerColor(e.target.value)}
         />
-        <Link to={`/color/${noHashColor}`} className="btn">Find the colour!</Link>
+        <Link to={`/color/${noHashColor}`} className="btn">SEARCH</Link>
       </section>
       <Container fluid className="color-index-container">
-        <Card className="colorCards">
+        <Card className="colorCards border-0">
           {color.map(color => {
             // couldn't deconstruct as they all are called 'value'
             const hexVal = color.hex.value
@@ -41,11 +41,11 @@ export default function ColorIndex() {
             const href = color._links.self.href
             const id = href.split('=')[1]
             return (
-              <Card className="individualCard shadow-sm" key={ id } style={{ width: '12rem' }}>
+              <Card className="individualCard shadow-sm" key={ id } >
                 <Link to={`/color/${id}`}><Card.Img  variant="top" src={colorImg}/></Link>
-                <Card.Body>
+                <Card.Body style={{ fontSize: '1em' }}>
                   <Card.Title>SPAMTONE&trade;</Card.Title>
-                  <Card.Text>
+                  <Card.Text className="description-text">
                     {hexVal}<br></br>
                     {nameVal}<br></br>
                   </Card.Text>

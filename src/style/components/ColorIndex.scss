@@ -1,14 +1,68 @@
-.colorCards {
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+main {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 80%;
-  margin: 0 auto;
-  justify-content: space-evenly;
-  
-  .individualCard {
-    margin: 20px;
-    cursor: pointer;
+}
+
+.color-picker-section {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  height: 150px;
+  border-bottom: 1px solid #d6d6d6;
+  border-right: 1px solid #d6d6d6;
+  border-left: 1px solid #d6d6d6;
+  border-radius: 4px;
+  margin: 20px 10px 0 20px;
+  align-items: center;
+  overflow: hidden;
+  .form-control-color {
+    width: 120px;
+    height: 100px;
+    padding: 0;
+    border-radius: 100px;
+  }
+  .btn {
+    align-self: baseline;
+    font-weight: 600;
+    padding: 7px;
+    font-size: 12px;
+    transition: .2s ease-in-out;
+    &:hover {
+      font-weight: 800;
+      transform: scale(1.03); 
+    }
+  }
+}
+
+.color-index-container{
+  border: none;
+  .colorCards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto 2em auto;
+    justify-content: space-evenly;
+    .individualCard {
+      margin: 20px;
+      cursor: pointer;
+      width: 12rem;
+      transition: .3s ease-in-out;
+      &:hover {
+        transform: scale(1.03); 
+        opacity: 0.9;
+      }
+      .description-text {
+        color: grey;
+      }
+    }
   }
 }
 
