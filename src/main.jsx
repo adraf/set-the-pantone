@@ -8,7 +8,7 @@ import ColorIndex from './components/ColorIndex.jsx'
 import SingleColor from './components/SingleColor.jsx'
 
 // Loaders
-import { getAllColors } from './utils/loaders/colors.js'
+import { getAllColors, getSingleColor } from './utils/loaders/colors.js'
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -25,8 +25,10 @@ const router = createBrowserRouter([
           loader: getAllColors
         },
         {
-          path: "/SingleColor",
-          element: <SingleColor />
+          path: "/color/:colorID",
+          element: <SingleColor />,
+          // loader: getSingleColor
+          loader: async ({ params }) => getSingleColor(params.colorID)
         }
       ]
     }

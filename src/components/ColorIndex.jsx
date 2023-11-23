@@ -1,9 +1,11 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, Link } from "react-router-dom"
+
 
 // Bootstrap components
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 
+// eslint-disable-next-line react/prop-types
 export default function ColorIndex() {
   const color = useLoaderData()
 
@@ -18,10 +20,12 @@ export default function ColorIndex() {
             const cmykVal = color.cmyk.value
             const nameVal = color.name.value
             const colorImg = color.image.bare
-            const id = color._links.self.href
+            // can use clean hex as well
+            const href = color._links.self.href
+            const id = href.split('=')[1]
             return (
               <Card className="individualCard" key={ id } style={{ width: '14rem' }}>
-                <Card.Img variant="top" src={colorImg}/>
+                <Link to={`/color/${id}`}><Card.Img  variant="top" src={colorImg}/></Link>
                 <Card.Body>
                   <Card.Title>SPAMTONE&trade;</Card.Title>
                   <Card.Text>
