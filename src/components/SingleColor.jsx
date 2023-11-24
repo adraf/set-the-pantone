@@ -18,7 +18,9 @@ export default function SingleColor() {
   return (
     <main className="main-single-color">
       <section className="single-color-top-section">
+        {/* Back button to return to index */}
         <Link className='btn' to="/">Back</Link>
+        {/* Single card colour */}
         <section className="section-single-color">
           <Card className="individualCard shadow-sm" key={ id } style={{ width: '20rem' }}>
             <Card.Img  variant="top" src={colorImg}/>
@@ -34,6 +36,7 @@ export default function SingleColor() {
           </Card>
         </section>
       </section>
+      {/* Colour scheme cards on single colour page */}
       <section className="single-color-scheme">
         <Container fluid className="color-index-container">
           <Card className="colorCards border-0">
@@ -50,7 +53,7 @@ export default function SingleColor() {
                   <Link to={`/color/${id}`}><Card.Img  variant="top" src={colorImg}/></Link>
                   <Card.Body>
                     <Card.Title>SPAMTONE&trade;</Card.Title>
-                    <Card.Text>
+                    <Card.Text className="description-text">
                       {hexVal}<br></br>
                       {nameVal}<br></br>
                     </Card.Text>

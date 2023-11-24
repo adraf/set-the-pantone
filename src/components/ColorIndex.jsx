@@ -9,16 +9,17 @@ import Form from 'react-bootstrap/Form'
 // eslint-disable-next-line react/prop-types
 export default function ColorIndex() {
 
-  // loader
+// loader
   const color = useLoaderData()
 
-  // state
-  const [ pickerColor, setPickerColor ] = useState('#0504AA')
+// state
+  const [ pickerColor, setPickerColor ] = useState('#BE3455')
 
   const noHashColor = pickerColor.split('#')[1]
 
   return (
     <main>
+     {/* Search bar - colour picker */}
       <section className="color-picker-section">
         <Form.Label hidden htmlFor="exampleColorInput"></Form.Label>
         <Form.Control
@@ -30,6 +31,7 @@ export default function ColorIndex() {
         />
         <Link to={`/color/${noHashColor}`} className="btn">SEARCH</Link>
       </section>
+      {/* Container for all colour cards in main index */}
       <Container fluid className="color-index-container">
         <Card className="colorCards border-0">
           {color.map(color => {
@@ -37,10 +39,11 @@ export default function ColorIndex() {
             const hexVal = color.hex.value
             const nameVal = color.name.value
             const colorImg = color.image.bare
-            // can use clean hex as well
+            // Deconstructed ID - can use clean hex as well
             const href = color._links.self.href
             const id = href.split('=')[1]
             return (
+              // Individual cards
               <Card className="individualCard shadow-sm" key={ id } >
                 <Link to={`/color/${id}`}><Card.Img  variant="top" src={colorImg}/></Link>
                 <Card.Body style={{ fontSize: '1em' }}>
