@@ -8,7 +8,6 @@ import { Link } from "react-router-dom"
 export default function SingleColor() {
   // loader
   const data = useLoaderData()
-  console.log(data)
   const hexVal = data.singleColor.hex.value
   const rgbVal = data.singleColor.rgb.value
   const cmykVal = data.singleColor.cmyk.value

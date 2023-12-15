@@ -14,9 +14,7 @@ export default function ColorIndex() {
 
 // state
   const [ pickerColor, setPickerColor ] = useState('#BE3455')
-
   const noHashColor = pickerColor.split('#')[1]
-
   return (
     <main>
      {/* Search bar - colour picker */}
